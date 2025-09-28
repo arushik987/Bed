@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B Educational Consultancy</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+    <div id="auth-container">
+        <h1>Login / Signup</h1>
+        <div class="auth-form">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="passKey" placeholder="Local Pass Key">
+            <p id="auth-error" class="error-message"></p>
+            <button id="loginBtn">Login</button>
+            <button id="signupBtn">Signup</button>
+        </div>
+    </div>
+
+    <div id="dashboard-container" style="display: none;">
+        <header>
+            <h1 class="glow">B Educational Consultancy</h1>
+            <button id="logoutBtn">Logout</button>
+        </header>
+
+        <main>
+            <section id="home-section" class="content-section active">
+                <h1 class="glow">Welcome!</h1>
+                <p>Manage your students and partner colleges efficiently.</p>
+                <div class="summary-cards">
+                    <div class="card">
+                        <h3>Total Students</h3>
+                        <p id="totalStudents">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Total Colleges</h3>
+                        <p id="totalColleges">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="students-section" class="content-section">
+                <h1 class="glow">Students Management</h1>
+                <div class="form-card">
+                    <h2>Add New Student</h2>
+                    <input type="text" id="studentName" placeholder="Student Name">
+                    <input type="text" id="studentNumber" placeholder="Contact Number">
+                    <input type="text" id="studentAddress" placeholder="Address">
+                    <button id="addStudentBtn">Add Student</button>
+                    <p id="student-message" class="message"></p>
+                </div>
+
+                <div class="data-card">
+                    <h2>Student List</h2>
+                    <ul id="studentList">
+                        <!-- Student items will be loaded here -->
+                    </ul>
+                </div>
+            </section>
+
+            <section id="colleges-section" class="content-section">
+                <h1 class="glow">Colleges Management</h1>
+                <div class="form-card">
+                    <h2>Add New College</h2>
+                    <input type="text" id="collegeName" placeholder="College Name">
+                    <input type="text" id="collegeNumber" placeholder="Contact Number">
+                    <input type="text" id="collegeAddress" placeholder="Address">
+                    <input type="text" id="facultyName" placeholder="Faculty Name">
+                    <button id="addCollegeBtn">Add College</button>
+                    <p id="college-message" class="message"></p>
+                </div>
+
+                <div class="data-card">
+                    <h2>College List</h2>
+                    <ul id="collegeList">
+                        <!-- College items will be loaded here -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="home-section">
+                <img src="https://img.icons8.com/ios-filled/24/ffffff/home--v1.png" alt="Home">
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-target="students-section">
+                <img src="https://img.icons8.com/ios-filled/24/ffffff/graduation-cap.png" alt="Students">
+                <span>Students</span>
+            </button>
+            <button class="nav-item" data-target="colleges-section">
+                <img src="https://img.icons8.com/ios-filled/24/ffffff/university.png" alt="Colleges">
+                <span>Colleges</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
